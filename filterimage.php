@@ -101,133 +101,50 @@ function filter($uploadfile, $out, $type, $value=false){
         imagedestroy($img);
 }
 
-
-
+//source image
 $source='./img/filter.png';
 
-$type='gray';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='negative';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='color';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type, 'ff0000');
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
+//bright filter: value -127...127
 $type='bright';
 $output='./img/filter_'.$type.'.png';
-filter($source,$output,$type, -100);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
+filter($source,$output,$type,100);
+echo $type.'<br><img src="'.$output.'?rand='.rand(0,1000).'"/><br>';
 
-$type='blur';
+//color filter: value 000000...ffffff
+$type='color';
 $output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
+filter($source,$output,$type,'66ff00');
+echo $type.'<br><img src="'.$output.'?rand='.rand(0,1000).'"/><br>';
 
-$type='antique';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
+//others filters
+$types=array(
+  'gray',
+  'negative',
+  'blur',
+  'antique',
+  'blackwhite',
+  'boost',
+  'sepia',
+  'dreamy',
+  'velvet',
+  'chrome',
+  'lift',
+  'canvas',
+  'vintage',
+  'monopin',
+  'edge',
+  'emboss',
+  'removal',
+  'pixel',
+  'shakal'
+);
 
-$type='blackwhite';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
 
-$type='boost';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
 
-$type='sepia';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
+foreach($types as $type){
+  $output='./img/filter_'.$type.'.png';
+  filter($source,$output,$type);
+  echo $type.'<br><img src="'.$output.'?rand='.rand(0,1000).'"/><br>';
+}
 
-$type='dreamy';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='velvet';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='chrome';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='lift';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='canvas';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='vintage';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='monopin';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='edge';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='emboss';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='removal';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='pixel';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
-
-$type='shakal';
-$output='./img/filter_'.$type.'.png';
-filter($source,$output,$type);
-echo $type.'<br>';
-echo '<img src="'.$output.'?rand='.rand(0,1000).'"/>';
 ?>
