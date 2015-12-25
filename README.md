@@ -1,2 +1,4 @@
 # Pikapost
-draw text (Imagick, Php)
+text to image (Imagick, php) and filter image (GD, php)
+
+
